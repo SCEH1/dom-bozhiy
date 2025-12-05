@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дом Божий - Объединение верующих</title>
+    <!-- Шрифты и иконки -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-dark: #1F242D;
+            --bg-card: #2B323E;
+            --text-white: #FFFFFF;
+            --text-blue: #6AB0FF;
+            --accent-gold: #FFCC00;
+            --font-main: 'Roboto', sans-serif;
+            --font-header: 'Roboto Slab', serif;
+        }
+
+        html { scroll-behavior: smooth; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            font-family: var(--font-main);
+            line-height: 1.6;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        h1, h2, h3 { font-family: var(--font-header); margin-bottom: 1rem; }
+        .text-blue { color: var(--text-blue); }
+        .text-gold { color: var(--accent-gold); }
+        .text-center { text-align: center; }
+
+        /* HERO */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: radial-gradient(circle at center, #2e3646 0%, #1F242D 70%);
+        }
+        .hero-icon { font-size: 4rem; color: #AABbd1; margin-bottom: 20px; }
+        .hero h1 { font-size: 3.5rem; color: var(--text-blue); margin-bottom: 10px; }
+        .hero-subtitle { font-size: 1.5rem; margin-bottom: 30px; color: var(--text-blue); }
+        .hero-desc { max-width: 800px; margin: 0 auto 30px; font-size: 1.1rem; }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--text-blue);
+            color: #fff;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: 0.3s;
+            margin-top: 20px;
+            border: 2px solid var(--text-blue);
+            cursor: pointer;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            background-color: #fff;
+            color: var(--text-blue);
+        }
+
+        /* SECTIONS */
+        section { padding: 60px 0; border-bottom: 1px solid #2e3646; }
+        .section-title { text-align: center; font-size: 2.2rem; color: var(--text-blue); margin-bottom: 40px; }
+
+        /* GRIDS & CARDS */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        
+        .card, .vision-card, .step-card {
+            background-color: var(--bg-card);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid #3E4756;
+        }
+        .vision-card { text-align: center; }
+        .vision-icon { font-size: 2rem; margin-bottom: 15px; color: #ccc; }
+
+        /* LISTS */
+        ul.icon-list { list-style: none; }
+        ul.icon-list li { margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px; }
+
+        /* QUOTES & TIMELINE */
+        .quote-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-left: 4px solid var(--accent-gold);
+            margin: 20px 0;
+        }
+        .timeline-item { margin-bottom: 30px; border-left: 3px solid var(--text-blue); padding-left: 20px; }
+        .year { font-weight: bold; color: var(--text-blue); font-size: 1.2rem; }
+
+        /* NUMBERS */
+        .stat-box { text-align: center; }
+        .stat-number { font-size: 2.5rem; font-weight: bold; color: var(--text-blue); }
+        .stat-label { color: #aaa; text-transform: uppercase; font-size: 0.9rem; }
+
+        /* QR SECTION */
+        .qr-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+            padding: 40px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            border: 1px dashed #444;
+        }
+        .qr-image-container {
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            max-width: 300px;
+            text-align: center;
+        }
+        .qr-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            min-height: 200px; /* Чтобы блок не схлопывался если картинки нет */
+            background: #eee; /* Серый фон если картинка не загрузилась */
+        }
+        .qr-label {
+            color: #000;
+            font-weight: bold;
+            margin-top: 10px;
+            text-transform: uppercase;
+            font-family: var(--font-main);
+            letter-spacing: 1px;
+        }
+
+        /* FOOTER */
+        .footer { background-color: #151920; padding: 40px 0; font-size: 0.9rem; color: #888; text-align: center; }
+
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-icon"><i class="fa-solid fa-landmark"></i></div>
+            <h1>Дом Божий</h1>
+            <p class="hero-subtitle">💙 Объединение верующих в историческом деле</p>
+            <div class="hero-desc">
+                <p>🎯 Благотворительная программа по приобретению помещения для Централизованной религиозной организации «ВСЕСОЮЗНОЕ СОДРУЖЕСТВО ЕВАНГЕЛЬСКИХ ХРИСТИАН»</p>
+                <br>
+                <p class="text-blue"><i class="fa-solid fa-location-dot"></i> Москва, 2025</p>
+            </div>
+            <!-- Ссылка-якорь на QR код -->
+            <a href="#join-qr" class="cta-button">Присоединиться</a>
+        </div>
+    </header>
+
+    <!-- CONTENT SECTIONS (Сокращены для удобства, структура сохранена) -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">✨ Библейская параллель</h2>
+            <div class="grid-2">
+                <ul class="icon-list">
+                    <li>🎁 Люди жертвовали имущество, время, таланты</li>
+                    <li>💰 Богачи давали золото и серебро</li>
+                    <li>💙 Это был символ единства и завета с Богом</li>
+                </ul>
+                <div class="quote-box">
+                    <h3>🤝 Сегодня нам предстоит подобное объединение</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">📊 Параметры проекта</h2>
+            <div class="grid-2">
+                <div class="stat-box"><div class="stat-number">100 млн ₽</div><div class="stat-label">Стоимость</div></div>
+                <div class="stat-box"><div class="stat-number">2 года</div><div class="stat-label">Сроки</div></div>
+                <div class="stat-box"><div class="stat-number">800 кв.м</div><div class="stat-label">Площадь</div></div>
+                <div class="stat-box"><div class="stat-number">5000+</div><div class="stat-label">Участников</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: #252b36;">
+        <div class="container">
+            <h2 class="section-title">🏗 Механика сбора</h2>
+            <h3 class="text-center text-blue" style="margin-bottom: 20px;">5000 верующих × 10 000 ₽/год</h3>
+            <div class="quote-box text-center" style="border-color: var(--text-blue);">
+                <span class="text-gold">✨ НАШ ЛОЗУНГ:</span> Минимум 10 000 ₽ в год — БОЛЬШЕ ПРИВЕТСТВУЕТСЯ
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">➡ Ваш путь участника</h2>
+            <div class="grid-2">
+                <div class="step-card">
+                    <h3>ШАГ 1: Решение ✅</h3> <p>Вы говорите «Да»</p>
+                </div>
+                <div class="step-card">
+                    <h3>ШАГ 2: Присоединение 🤝</h3> <p>Вступить в Чат-бот</p>
+                </div>
+                <div class="step-card">
+                    <h3>ШАГ 3: Пожертвование 💰</h3> <p>Внести минимум 10 000 ₽/год</p>
+                </div>
+                <div class="step-card">
+                    <h3>ШАГ 4: Участие 🙏</h3> <p>Молитва и приглашение знакомых</p>
+                </div>
+            </div>
+            
+            <!-- БЛОК С QR КОДОМ (ID для кнопки) -->
+            <div id="join-qr" class="text-center" style="margin-top: 60px;">
+                <p style="margin-bottom: 20px; font-size: 1.4rem;">Присоединяйтесь к общей цели:</p>
+                
+                <div class="qr-section">
+                    <div class="qr-image-container">
+                        <!-- ЗДЕСЬ ПОДКЛЮЧАЕТСЯ КАРТИНКА -->
+                        <!-- Файл должен называться qr.png и лежать рядом с index.html -->
+                        <img src="qr.png" alt="Пожалуйста, сохраните картинку QR-кода как qr.png в папку с сайтом">
+                        <div class="qr-label">Отсканируйте QR-код</div>
+                    </div>
+                    <p style="margin-top: 20px; color: #888;">Чат-бот готов помочь вам присоединиться</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Централизованная религиозная организация «ВСЕСОЮЗНОЕ СОДРУЖЕСТВО ЕВАНГЕЛЬСКИХ ХРИСТИАН»</p>
+            <p>Москва, 2025</p>
+        </div>
+    </footer>
+
+</body>
+</html>
