@@ -148,7 +148,7 @@
 
         .grid-3 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Уменьшил с 300px для мобилок */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
         }
 
@@ -314,7 +314,6 @@
             width: 100%;
             height: auto;
             display: block;
-            /* Placeholder color if image missing */
             min-height: 250px;
             background-color: #f0f0f0; 
             object-fit: contain;
@@ -352,7 +351,7 @@
             background-color: #151920;
             padding: 50px 0;
             font-size: 0.95rem;
-            color: #a0a0a0; /* Светлее для читаемости */
+            color: #a0a0a0;
         }
         .requisites p {
             margin-bottom: 8px;
@@ -364,12 +363,9 @@
         /* RESPONSIVE */
         @media (max-width: 768px) {
             .grid-2 { grid-template-columns: 1fr; }
-            
             .hero h1 { font-size: 2.5rem; }
             .hero-subtitle { font-size: 1.2rem; }
-            
             .section-title { font-size: 1.8rem; margin-bottom: 30px; }
-            
             .card, .vision-card, .step-card { padding: 20px; }
         }
     </style>
@@ -389,6 +385,7 @@
                 <p class="text-blue fs-large"><i class="fa-solid fa-location-dot"></i> Москва, 2025</p>
             </div>
             
+            <!-- Кнопка ведет к блоку с ID qrcode внизу страницы -->
             <a href="#qrcode" class="cta-button">Присоединиться</a>
         </div>
     </header>
@@ -421,7 +418,6 @@
                         </li>
                     </ul>
                 </div>
-                <!-- Выровняем блок цитаты по центру вертикально относительно списка -->
                 <div style="display: flex; align-items: center;">
                     <div class="quote-box" style="width: 100%;">
                         <h3>✨🤝 Сегодня нам предстоит подобное объединение</h3>
@@ -716,7 +712,8 @@
             <!-- БЛОК С QR КОДОМ -->
             <div id="qrcode" class="qr-section">
                 <div class="qr-image-container">
-                    <img src="qr.png" alt="QR Code для оплаты">
+                    <!-- ВАЖНО: Имя файла соответствует вашему скриншоту (без расширения) -->
+                    <img src="qr2025" alt="QR Code для оплаты">
                     <div class="qr-label">Отсканируйте QR-код</div>
                 </div>
             </div>
